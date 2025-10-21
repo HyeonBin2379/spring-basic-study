@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>사칙연산 프로그램</title>
+    <script>
+        function fn_validate() {
+            let frmInput = document.frmInput;
+            let x = frmInput.x.value;
+            let y = frmInput.y.value;
+            let op = frmInput.op.value;
+
+            if (x.length === 0 || y.length === 0) {
+                alert("연산할 숫자값 입력은 필수입니다.");
+                return;
+            }
+            if (/[^0-9]+/.test(x) || /[^0-9]+/.test(y)) {
+                alert("숫자만 입력할 수 있습니다.");
+                return;
+            }
+            if (y === "0" && op === "div") {
+                alert("0으로 나눌 수 없습니다.");
+                return;
+            }
+            frmInput.method = "get";
+            frmInput.action = "calculator";
+            frmInput.submit();
+        }
+    </script>
+</head>
+<body>
+<form name="frmInput">
+    x값 입력: <input type="text" name="x"><br>
+    y값 입력: <input type="text" name="y"><br>
+
+    <input type="radio" name="op" value="add"> add </input>
+    <input type="radio" name="op" value="sub"> sub </input>
+    <input type="radio" name="op" value="mul"> mul </input>
+    <input type="radio" name="op" value="div"> div </input>
+    <br>
+    <input type="button" onclick="fn_validate()" value="전송">
+</form>
+</body>
+</html>
