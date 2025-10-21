@@ -1,0 +1,35 @@
+package com.ssg.springex;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+@WebServlet(name = "firstServlet", value = "/first")
+public class FirstServlet extends HttpServlet {
+
+    @Override
+    public void init() throws ServletException {
+        System.out.println("FirstServlet init() 메서드 호출");
+    }
+
+    @Override
+    public void destroy() {
+        System.out.println("destroy 메서드 호출");
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("do GET 메서드 추출");
+        response.setContentType("text/html");
+
+        // Hello
+        PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        out.println("<h1>First Servlet - LHB</h1>");
+        out.println("</body></html>");
+    }
+}
