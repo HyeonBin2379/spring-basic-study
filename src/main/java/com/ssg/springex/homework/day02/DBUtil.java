@@ -20,10 +20,8 @@ public class DBUtil {
 
     public static Connection getConnection() {
         try {
-            if (conn == null) {
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/member_servlet_db?serverTimezone=Asia/Seoul&charEncoding=UTF-8", "root", "mysql1234");
-                System.out.println("Connection 생성 성공");
-            }
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/member_servlet_db?serverTimezone=Asia/Seoul&charEncoding=UTF-8", "root", "mysql1234");
+            System.out.println("Connection 생성 성공");
             return conn;
         } catch (SQLException e) {
             e.printStackTrace();
