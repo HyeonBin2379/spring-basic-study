@@ -10,7 +10,7 @@
 <h1><%= "Hello World!" %></h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a><br>
-<a href="my.jsp"> my </a><br>
+<a href="servlet_basic/my.jsp"> my </a><br>
 <a href="first">firstServlet</a>
 </body>
 </html>

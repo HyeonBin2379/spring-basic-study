@@ -1,4 +1,4 @@
-package com.ssg.springex;
+package com.ssg.springex.servlet_basic;
 
 import java.io.*;
 
