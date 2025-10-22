@@ -29,8 +29,9 @@ public class MemberResultController extends HttpServlet {
         memberInfo.setHobbies(hobbies);
 
         String result = dao.registerMember(memberInfo);
-        req.setAttribute("result", result);
+        System.out.println(result);
 
+        req.setAttribute("result", result);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/homework/day02/result.jsp");
         dispatcher.forward(req, resp);
     }
