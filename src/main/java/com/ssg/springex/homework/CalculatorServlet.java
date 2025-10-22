@@ -15,10 +15,12 @@ public class CalculatorServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
 
+        // 피연산자 x, y와 수행할 사칙연산을 나타내는 op
         int x = Integer.parseInt(req.getParameter("x"));
         int y = Integer.parseInt(req.getParameter("y"));
         String op = req.getParameter("op");
 
+        // 연산 결과 출력
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter out = resp.getWriter();
 

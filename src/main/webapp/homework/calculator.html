@@ -9,11 +9,12 @@
             let y = frmInput.y.value;
             let op = frmInput.op.value;
 
+            // 피연산자 유효성 검사
             if (x.length === 0 || y.length === 0) {
                 alert("연산할 숫자값 입력은 필수입니다.");
                 return;
             }
-            if (/[^0-9]+/.test(x) || /[^0-9]+/.test(y)) {
+            if (!/[0-9]+/.test(x) || !/[0-9]+/.test(y)) {
                 alert("숫자만 입력할 수 있습니다.");
                 return;
             }
@@ -32,10 +33,10 @@
     x값 입력: <input type="text" name="x"><br>
     y값 입력: <input type="text" name="y"><br>
 
-    <input type="radio" name="op" value="add"> add </input>
-    <input type="radio" name="op" value="sub"> sub </input>
-    <input type="radio" name="op" value="mul"> mul </input>
-    <input type="radio" name="op" value="div"> div </input>
+    <input type="radio" name="op" value="add"> add
+    <input type="radio" name="op" value="sub"> sub
+    <input type="radio" name="op" value="mul"> mul
+    <input type="radio" name="op" value="div"> div
     <br>
     <input type="button" onclick="fn_validate()" value="전송">
 </form>
