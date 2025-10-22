@@ -1,11 +1,9 @@
 package com.ssg.springex.servlet_dao;
 
-import com.sun.tools.javac.util.List;
+import java.sql.*;
+import java.util.List;
 
-import java.sql.Statement;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class MemberDAO {
 
@@ -21,7 +19,6 @@ public class MemberDAO {
     }
 
     private MemberDAO() {
-        connDB();
     }
 
     private void connDB() {
@@ -41,7 +38,38 @@ public class MemberDAO {
         }
     }
 
+    private void disconnect() throws SQLException {
+        this.conn.close();
+        this.stmt.close();
+    }
+
     public List<MemberVO> listMembers() {
-        return null;
+        List<MemberVO> memberList = new ArrayList<>();
+        try {
+            connDB();
+            String sql = "select * from members";
+            try (ResultSet rs = stmt.executeQuery(sql)) {
+                while (rs.next()) {
+                    String id = rs.getString("userId");
+                    String pwd = rs.getString("userPwd");
+                    String name = rs.getString("userName");
+                    String email = rs.getString("userEmail");
+                    Date joinDate = rs.getDate("joinDate");
+
+                    MemberVO member = new MemberVO();
+                    member.setId(id);
+                    member.setPwd(pwd);
+                    member.setName(name);
+                    member.setEmail(email);
+                    member.setJoinDate(joinDate);
+
+                    memberList.add(member);
+                }
+            }
+            disconnect();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return memberList;
     }
 }
