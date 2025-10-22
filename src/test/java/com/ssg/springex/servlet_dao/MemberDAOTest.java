@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MemberDAOTest {
 
     @Test
-    @DisplayName("MySQL DB 연동 테스트 및 싱글톤 패턴 적용 확인")
+    @DisplayName("MemberDAO 싱글톤 객체 검사")
     void getInstanceTest() {
         MemberDAO dao1 = MemberDAO.getInstance();
         MemberDAO dao2 = MemberDAO.getInstance();

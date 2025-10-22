@@ -7,20 +7,22 @@ import java.util.ArrayList;
 
 public class MemberDAO {
 
+    private Statement stmt;
+
+    // MemberDAO 싱글톤 패턴 적용
     private static class LazyHolder {
         private static final MemberDAO memberDAO = new MemberDAO();
+    }
+
+    private MemberDAO() {
     }
 
     public static MemberDAO getInstance() {
         return LazyHolder.memberDAO;
     }
 
-    private Statement stmt;
-
-    private MemberDAO() {
-    }
-
     private void connDB() throws SQLException {
+        // DB 연결 및 Statement 생성
         Connection conn = DBUtil.getConnection();
         this.stmt = conn.createStatement();
         System.out.println("Statement 생성 성공");
