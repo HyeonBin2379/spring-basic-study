@@ -1,4 +1,4 @@
-package com.ssg.springex.homework;
+package com.ssg.springex.homework.day01;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
