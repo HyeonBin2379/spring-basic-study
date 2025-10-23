@@ -10,11 +10,13 @@
             let userPwd = registerForm.user_pwd.value;
             let userPwdRetry = registerForm.user_pwd_retry.value;
 
+            // 정규식을 사용하여 아이디 유효성 검사 수행
             if (!/[0-9a-zA-Z_]{3,20}/.test(userID)) {
                 alert("아이디의 입력 형식이 맞지 않습니다.");
                 return;
             }
-            if (userPwd < 6) {
+            // 비밀번호 길이 및 재입력 유효성 검사
+            if (userPwd.length < 6) {
                 alert("입력한 비밀번호의 길이가 유효하지 않습니다.")
                 return;
             }

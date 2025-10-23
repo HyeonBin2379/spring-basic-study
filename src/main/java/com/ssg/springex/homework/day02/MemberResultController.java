@@ -15,6 +15,7 @@ public class MemberResultController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("MemberResultController.doPost");
         req.setCharacterEncoding("UTF-8");
         String userID = req.getParameter("user_id");
         String userPwd = req.getParameter("user_pwd");

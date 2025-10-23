@@ -13,6 +13,7 @@ public class MemberRegisterController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("MemberRegisterController.doGet");
         RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/homework/day02/memberRegister.html");
         dispatcher.forward(req, resp);
     }
