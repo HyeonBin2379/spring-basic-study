@@ -8,7 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%-- setAttribute() 메서드로 등록한 값을 JSP 파일 내부에서 사용 --%>
-<% String result = (String)session.getAttribute("result"); %>
+<%
+    String result = (String)session.getAttribute("result");
+    session.removeAttribute("result");
+%>
 <html>
 <head>
     <meta charset="UTF-8">
