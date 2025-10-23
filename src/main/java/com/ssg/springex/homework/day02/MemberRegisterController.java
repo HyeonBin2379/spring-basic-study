@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,7 +33,9 @@ public class MemberRegisterController extends HttpServlet {
         String userID = req.getParameter("user_id");
         String userPwd = req.getParameter("user_pwd");
         String gender = req.getParameter("gender");
-        List<String> hobbies = Arrays.asList(req.getParameterValues("hobby"));
+        List<String> hobbies = req.getParameterValues("hobby") == null
+                ? new ArrayList<>()
+                : Arrays.asList(req.getParameterValues("hobby"));
 
         // 신규 회원 정보를 MemberInfo 객체에 저장
         MemberInfo memberInfo = new MemberInfo();
